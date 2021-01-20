@@ -56,7 +56,8 @@ function draw() {
     let current_time = my_data[iter]['ddtt'];
     let clock_time = "Current time:           " + current_time.slice(0,4) + "." + current_time.slice(4,6) + "." + current_time.slice(6, 8) + "       " + current_time.slice(8, 10) + ":" + current_time.slice(10, 12);
     $('#time_title').text(clock_time.replaceAll(" ", '\xA0')); //这里需要把空格转换成16进制的160，代表空格
-
+    let filename = current_time.slice(0, 4) + "-" + current_time.slice(4, 6) + "-" + current_time.slice(6, 8) + ".png"
+    d3.select("#wordcloud").attr("src", "wordclouds/" + filename)
     // 2.渲染地图的颜色
     let text = "Now rendering " + (iter+2).toString() + "/3406 data";
     $('#rendering_num').text(text);
@@ -144,10 +145,6 @@ function draw() {
     state_clean, trump_win_rate_list, ddtt, leading_candidate_name, trailing_candidate_name, leading_candidate_votes, trailing_candidate_votes, vote_differential
 */
 
-function stop() {
-    let progress = $("#progress1");
-
-}
 function main(){
     d3.csv(data_file).then(function (DATA){
         my_data = DATA;
@@ -174,9 +171,8 @@ function main(){
                 draw()
             }, 10);
         })
-
-
     })
 }
+
 
 main()

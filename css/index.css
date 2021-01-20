@@ -6,10 +6,7 @@
 .state:hover{
     fill-opacity:0.5;
 }
-#statesvg{
-    position:absolute;
-    left:100px;
-}
+
 #first_alert{
     position: absolute;
     top: 15px;
@@ -58,12 +55,21 @@
 #time_title{
     font-weight: normal;
 }
+
+img {
+    position: absolute;
+    left: 1100px;
+    top: 150px;
+    width: 900px;
+}
+
 #progress {
     position:absolute;
     left:1200px;
-    top:300px;
-    width:550px;
+    top:800px;
+    width:600px;
     height:200px;
+    z-index:1;
 }
 #progress1{
     width:100%;
@@ -75,6 +81,9 @@
 #stop {
     width: 30%;
 }
-#reset {
+#reset{
     width: 30%;
 }
+
+
+
